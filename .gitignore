@@ -11,3 +11,4 @@ app/libs
 
 # css
 .sass-cache
+.maps
