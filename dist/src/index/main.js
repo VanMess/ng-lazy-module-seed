@@ -1,0 +1,1 @@
+define("index/main",["ng"],function(e){"use strict";var t="index",n=e.$$init(t,{});return n}),define("index",["index/main"],function(e){return e}),define(["index"],function(){});

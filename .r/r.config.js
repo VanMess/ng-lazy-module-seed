@@ -55,44 +55,44 @@ var replaceJsSubfix = function(moduleName, path, content) {
     },
     packages = [{
         'name': 'app',
-        'location': './src',
-        'main': 'app/bootstrap'
+        'location': './',
+        'wrap': {
+            'endFile': '_wrap_bootstrap.js'
+        },
+        'main': 'bootstrap'
     }, {
         'name': 'ng',
-        'location': './src',
-        'main': 'app/ng'
+        'location': './',
+        'main': 'ng'
     }],
     modules = {
         'app': {
             'name': 'app',
             'include': ['app'],
-            'out': '../dist/company/src/app/app.js',
-            'wrap': {
-                'endFile': '_wrap_bootstrap.js'
-            },
-            'exclude': ['ng', 'text', 'jquery']
+            'out': '../dist/src/app.js',
+            'exclude': ['ng', 'jquery']
         },
         'ng': {
             'name': 'ng',
             'include': ['ng'],
-            'out': '../dist/company/src/app/ng.js',
-            'exclude': ['text', 'jquery']
+            'out': '../dist/src/ng.js',
+            'exclude': ['jquery']
         }
     };
 
-var sysModules = ['book', 'apr', 'ent', 'index', 'order', 'profile'];
+var sysModules = ['blog', 'profile', 'index'];
 for (var i = 0, l = sysModules.length; i < l; i++) {
     var name = sysModules[i];
     packages.push({
         'name': name,
-        'location': './src',
-        'main': name + '/main'
+        'location': './' + name,
+        'main': 'main'
     });
     modules[name] = {
         'name': name,
         'include': [name],
-        'out': '../dist/company/src/' + name + '/main.js',
-        'exclude': ['ng', 'text', 'jquery'],
+        'out': '../dist/src/' + name + '/main.js',
+        'exclude': ['ng', 'jquery'],
         wrap: {
             start: '',
             end: 'define(["' + name + '"],function(){});'

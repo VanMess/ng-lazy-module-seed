@@ -1,53 +1,23 @@
 {
-    "baseUrl": "../company/",
+    "baseUrl": "../app/src",
     "optimize": "uglify",
     "almond": false,
     "useStrict": true,
     "removeCombined": true,
     "optimizeCss": "none",
     "optimizeAllPluginResources": false,
-
     "paths": {
-        "ng": "./src/app/ng",
-        "angular": "./libs/angular/angular",
-        "ngResource": "./libs/angular-resource/angular-resource",
-        "ngAnimate": "./libs/angular-animate/angular-animate",
-        "ngSanitize": "./libs/angular-sanitize/angular-sanitize",
-        "ngLoadingBar": "./libs/angular-loading-bar/build/loading-bar",
-        "perfectScrollbar": "./libs/perfect-scrollbar/js/perfect-scrollbar.jquery",
-        "ngBootstrap": "./libs/angular-bootstrap/ui-bootstrap-tpls",
-        "uiRouter": "./libs/angular-ui-router/release/angular-ui-router",
-        "ocLazyLoad": "./libs/ocLazyLoad/dist/ocLazyLoad.require",
-        "ngAutoValidate": "./libs/angular-auto-validate/dist/jcs-auto-validate",
-        "ngPrettyCheckable": "./libs/angular-pretty-checkable/dist/angular-pretty-checkable.min",
-        "ngSweetAlert": "./libs/ngSweetAlert/SweetAlert",
-        "sweetAlert": "./libs/sweetalert/dist/sweetalert-dev",
-        "ngProgressBtn": "./libs/angular-progress-button-styles/dist/angular-progress-button-styles",
-        "ngToast": "./libs/ngToast/dist/ngToast",
-        "ngFileUpload": "./libs/angular-file-upload/angular-file-upload",
-        "ngDialog": "./libs/ngDialog/js/ngDialog",
-
-        "ngSummernote": "./libs/angular-summernote/dist/angular-summernote",
-        "summernote": "./libs/summernote/dist/summernote",
-        "summernoteLang": "./libs/summernote/lang/summernote-zh-CN",
-        "bootstrap": "./libs/bootstrap/dist/js/bootstrap",
-
-        "echarts": "./libs/echarts/build/dist/echarts-all",
-
-        "uiSelect": "./libs/angular-ui-select/dist/select",
-
-        "ngWizard": "./libs/angular-wizard/dist/angular-wizard",
-
-        "uiTree": "./libs/angular-ui-tree/dist/angular-ui-tree",
-
-        "text": "./libs/requirejs-text/text",
-
-        "jquery": "./libs/jquery/dist/jquery"
+        "ng": "./ng",
+        "angular": "../libs/angular/angular",
+        "ngResource": "../libs/angular-resource/angular-resource",
+        "ngAnimate": "../libs/angular-animate/angular-animate",
+        "ngSanitize": "../libs/angular-sanitize/angular-sanitize",
+        "ngLoadingBar": "../libs/angular-loading-bar/build/loading-bar",
+        "uiRouter": "../libs/angular-ui-router/release/angular-ui-router",
+        "ocLazyLoad": "../libs/ocLazyLoad/dist/ocLazyLoad.require",
+        "jquery":"../libs/jquery/dist/jquery"
     },
     "shim": {
-        "jquery": {
-            "exports": "jquery"
-        },
         "angular": {
             "exports": "angular"
         },
@@ -67,87 +37,9 @@
             "deps": ["angular"],
             "exports": "ngSanitize"
         },
-        "ngBootstrap": {
-            "deps": ["angular"],
-            "exports": "ngBootstrap"
-        },
-
-        "ngFileUpload": {
-            "deps": ["angular"]
-        },
-
-        "ngAutoValidate": {
-            "deps": ["angular"],
-            "exports": "ngAutoValidate"
-        },
         "ocLazyLoad": {
             "deps": ["angular"],
             "exports": "ocLazyLoad"
-        },
-        "ngLoadingBar": {
-            "deps": ["angular"],
-            "exports": "ngLoadingBar"
-        },
-        "ngSweetAlert": {
-            "deps": ["angular", "sweetAlert"],
-            "exports": "ngSweetAlert"
-        },
-        "sweetAlert": {
-            "exports": "sweetAlert"
-        },
-        "ngProgressBtn": {
-            "deps": ["angular"],
-            "exports": "ngProgressBtn"
-        },
-
-        "perfectScrollbar": {
-            "exports": "perfectScrollbar"
-        },
-        "ngToast": {
-            "deps": ["angular", "ngSanitize", "ngAnimate"],
-            "exports": "ngToast"
-        },
-
-        "bootstrap": {
-            "exports": "bootstrap"
-        },
-        "ngPrettyCheckable": {
-            "deps": ["angular"],
-            "exports": "ngPrettyCheckable"
-        },
-
-        "ngSummernote": {
-            "deps": ["angular", "summernote", "summernoteLang"],
-            "exports": "ngSummernote"
-        },
-        "summernote": {
-            "deps": ["bootstrap"],
-            "exports": "summernote"
-        },
-        "summernoteLang": {
-            "deps": ["summernote"],
-            "exports": "summernoteLang"
-        },
-        "uiSelect": {
-            "deps": ["angular", "ngSanitize"]
-        },
-
-        "ngWizard": {
-            "deps": ["angular"],
-            "exports": "ngWizard"
-        },
-
-        "uiTree": {
-            "deps": ["angular"],
-            "exports": "uiTree"
-        },
-
-        "ngDialog": {
-            "deps": ["angular"],
-            "exports": "ngDialog"
-        },
-        "echarts": {
-            "exports": "echarts"
         }
     }
 }

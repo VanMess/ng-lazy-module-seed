@@ -3,4 +3,4 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/json2/20121008/json2.js"></script>
 		<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]--></head><body><script type="text/javascript" src="/libs/require-all/require.all.js" data-main="/src/app/app"></script></body></html>
+	<![endif]--></head><body ng-controller="RootCtrl as rootCtrl"><h1>页面标题：{{$state.current.data.title}}</h1><div ui-view=""></div><hr><div><a ui-sref="profile.reset">重置密码</a> <a ui-sref="index">首页</a> <a ui-sref="blog.list">加载博客模块</a></div><script type="text/javascript" src="/libs/requirejs/require.js" data-main="/src/app"></script></body></html>

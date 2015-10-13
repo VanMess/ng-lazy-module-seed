@@ -1,7 +1,8 @@
-define(['ng'], function(ng) {
+define(['ng', './core/main'], function(ng, core) {
+    'use strict';
     var app = ng.module('app', [
         'ui.router',
-        coreModule,
+        core,
         'ngAnimate',
         'ngResource',
         'oc.lazyLoad',
@@ -11,7 +12,9 @@ define(['ng'], function(ng) {
     return _bootstrap;
 
     function _bootstrap(systemConfig) {
-        app.contant('config', systemConfig);
-        ng.bootstrap(['app']);
+        app.constant('config', systemConfig);
+        ng.bootstrap(window.document, ['app'], {
+            strictDi: true
+        });
     }
 });

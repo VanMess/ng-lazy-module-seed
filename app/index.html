@@ -26,11 +26,16 @@
 	<![endif]-->
 </head>
 
-<body>
-
-    <!-- define content -->
-    <script type="text/javascript" src="/libs/require-all/require.all.js" data-main="/src/app/app"></script>
-    <!-- define more scripts -->
+<body ng-controller="RootCtrl as rootCtrl">
+    <h1>页面标题：{{$state.current.data.title}}</h1>
+    <div ui-view></div>
+    <hr>
+    <div>
+        <a ui-sref="profile.reset">重置密码</a>
+        <a ui-sref="index">首页</a>
+        <a ui-sref="blog.list">加载博客模块</a>
+    </div>
+    <script type="text/javascript" src="/libs/requirejs/require.js" data-main="/src/app"></script>
 </body>
 
 </html>

@@ -6,6 +6,6 @@ require.config({
     }
 });
 
-require(['ng', 'app/app/bootstrap'], function(ng, app) {
+require(['ng', 'app'], function(ng, app) {
 	'use strict';
 });

@@ -7,7 +7,8 @@ var gulp = require('gulp'),
             'gulp-ruby-sass': 'sass',
             'gulp-minify-css': 'minicss',
             'gulp-minify-html': 'minihtml',
-            'gulp-contrib-copy': 'copy'
+            'gulp-contrib-copy': 'copy',
+            'gulp-server-livereload': 'server'
         }
     }),
     config = {
@@ -25,16 +26,14 @@ var gulp = require('gulp'),
             filter: ['*']
         }, {
             src: 'img',
-            file: ['**']
+            file: ['**'],
+            filter: ['*']
         }],
-        // 不在 require 环境下，但需要打包压缩的js文件
-        /*
-    	{
-    		src:'' | [],
-			output:''
-    	}
-        */
-        'deps': []
+        'deps': [{
+            src: './app/libs/requirejs/require.js',
+            name: 'require.js',
+            output: 'libs/requirejs'
+        }]
     };
 
 /*
@@ -43,6 +42,18 @@ var gulp = require('gulp'),
 gulp.task('watch', function() {
     gulp.watch(path.join(config.root, config.scss, '**/*.scss'), ['prec:css']);
     gulp.watch(path.join(config.root, config.js, '**/*.js'), ['prec:js']);
+    gulp.run('server');
+});
+
+gulp.task('server', function() {
+    gulp.src(config.root)
+        .pipe($.server({
+            livereload: true,
+            directoryListing: false,
+            open: true,
+            port: '4001',
+            defaultFile: 'index.html'
+        }));
 });
 
 /*
@@ -83,9 +94,23 @@ gulp.task('default', function() {
     gulp.run('pro:css');
     gulp.run('prec:js');
     gulp.run('pro:js');
+    gulp.run('pro:html');
+    gulp.run('pro:res');
     if (process.argv.indexOf('-a') > 0) {
         gulp.run('pro:r:js');
+    } else {
+        gulp.run('pro:server');
     }
+});
+gulp.task('pro:server', function() {
+    gulp.src(config.dist)
+        .pipe($.server({
+            livereload: false,
+            directoryListing: false,
+            open: true,
+            port: '4002',
+            defaultFile: 'index.html'
+        }));
 });
 
 //  css 打包
@@ -115,7 +140,7 @@ gulp.task('pro:js', function() {
     for (var i = 0, l = deps.length; i < l; i++) {
         dist = path.join(config.dist, deps[i].output);
         gulp.src(deps[i].src)
-            .pipe($.concat(path.basename(dist)))
+            .pipe($.concat(path.basename(deps[i].name)))
             .pipe($.uglify())
             .pipe(gulp.dest(dist));
     }
@@ -135,7 +160,9 @@ gulp.task('pro:r:js', function() {
         console.log(data);
         throw new Error(data);
     }).on('close', function() {
-
+        if (process.argv.indexOf('-a') > 0) {
+            gulp.run('pro:server');
+        }
     });
     return buildProcess;
 });
