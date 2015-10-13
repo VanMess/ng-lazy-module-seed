@@ -1,12 +1,14 @@
 define([
     './list.js',
-    './detail.js'
-], function(listCtrl, detailCtrl) {
+    './detail.js',
+    './new.js'
+], function(listCtrl, detailCtrl, newCtrl) {
     'use strict';
 
     var controllers = {
         BlogListCtrl: listCtrl,
-        BlogCtrl: detailCtrl
+        BlogCtrl: detailCtrl,
+        CreateCtrl: newCtrl
     };
 
 

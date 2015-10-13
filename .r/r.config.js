@@ -56,10 +56,7 @@ var replaceJsSubfix = function(moduleName, path, content) {
     packages = [{
         'name': 'app',
         'location': './',
-        'wrap': {
-            'endFile': '_wrap_bootstrap.js'
-        },
-        'main': 'bootstrap'
+        'main': 'app.pro'
     }, {
         'name': 'ng',
         'location': './',

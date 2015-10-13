@@ -1,7 +1,4 @@
-require.config({
-    baseUrl: './src'
-});
-
-require(['./config/cfg.pro', './bootstrap'], function(systemConfig, bootstrap) {
+define(['./config/cfg.pro', './bootstrap'], function(systemConfig, bootstrap) {
+    'use strict';
     bootstrap(systemConfig);
 });

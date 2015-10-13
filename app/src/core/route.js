@@ -78,6 +78,13 @@ define([], function() {
                     ]
                 }
             },
+            'blog.create': {
+                url: '/create',
+                templateUrl: htmlBase + 'blog/new.html',
+                data: {
+                    title: '新建博客'
+                }
+            },
             'blog.list': {
                 url: '',
                 templateUrl: htmlBase + 'blog/list.html',
