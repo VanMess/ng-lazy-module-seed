@@ -6,41 +6,5 @@
     "removeCombined": true,
     "optimizeCss": "none",
     "optimizeAllPluginResources": false,
-    "paths": {
-        "ng": "./ng",
-        "angular": "../libs/angular/angular",
-        "ngAutoValidate": "../libs/angular-auto-validate/dist/jcs-auto-validate",
-        "ngResource": "../libs/angular-resource/angular-resource",
-        "ngAnimate": "../libs/angular-animate/angular-animate",
-        "ngSanitize": "../libs/angular-sanitize/angular-sanitize",
-        "ngLoadingBar": "../libs/angular-loading-bar/build/loading-bar",
-        "uiRouter": "../libs/angular-ui-router/release/angular-ui-router",
-        "ocLazyLoad": "../libs/ocLazyLoad/dist/ocLazyLoad.require",
-        "jquery": "../libs/jquery/dist/jquery"
-    },
-    "shim": {
-        "angular": {
-            "exports": "angular"
-        },
-        "uiRouter": {
-            "deps": ["angular"],
-            "exports": "uiRouter"
-        },
-        "ngResource": {
-            "deps": ["angular"],
-            "exports": "ngResource"
-        },
-        "ngAnimate": {
-            "deps": ["angular"],
-            "exports": "ngAnimate"
-        },
-        "ngSanitize": {
-            "deps": ["angular"],
-            "exports": "ngSanitize"
-        },
-        "ocLazyLoad": {
-            "deps": ["angular"],
-            "exports": "ocLazyLoad"
-        }
-    }
+    "configFile":"../app/src/app.js"
 }
