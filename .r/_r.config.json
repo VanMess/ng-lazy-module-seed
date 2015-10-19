@@ -6,5 +6,6 @@
     "removeCombined": true,
     "optimizeCss": "none",
     "optimizeAllPluginResources": false,
-    "configFile":"../app/src/app.js"
+    "configFile": "../app/src/app.js",
+    "sysModules": ["blog", "profile", "index"]
 }
